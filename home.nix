@@ -9,18 +9,22 @@
   home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
   home.file.".gitconfig".source = ./gitconfig;
 
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     shellAliases = {
       btw = "echo I use NixOS, btw";
     };
   };
 
+  programs.waybar.enable = true;
+
   # Setup user packages
   home.packages = with pkgs; [
     btop
     fzf
     nmap
+    zsh
+    bitwarden-desktop
   ];
 
 
