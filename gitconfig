@@ -1,0 +1,9 @@
+[user]
+    name = Mikkel Vestergaard
+    email = juulvestergaard@hotmail.com
+    username = moggel
+[core]
+    editor = nvim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[init]
+    defaultBranch = master
