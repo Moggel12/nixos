@@ -77,13 +77,19 @@
   #   pulse.enable = true;
   # };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  # Enable zsh
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      btw = "echo I use nixos BTW";
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.moggel = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   programs.firefox.enable = true;

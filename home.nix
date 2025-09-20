@@ -8,13 +8,22 @@
   # Setup config links
   home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
   home.file.".gitconfig".source = ./gitconfig;
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
 
   programs.zsh = {
     enable = true;
-    shellAliases = {
-      btw = "echo I use NixOS, btw";
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    autocd = true;
+
+    history = {
+      expireDuplicatesFirst = true;
+      ignoreSpace = false;
+      save = 15000;
+      share = true;
     };
   };
+
 
   programs.waybar.enable = true;
 
