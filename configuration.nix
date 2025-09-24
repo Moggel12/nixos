@@ -99,7 +99,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     wget
-    kitty
+    alacritty
     waybar
     wofi
     pavucontrol

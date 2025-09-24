@@ -1,0 +1,3 @@
+{
+  homeModules = import ./modules;
+}
