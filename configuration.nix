@@ -104,6 +104,7 @@
     wofi
     pavucontrol
     git
+    vscode
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

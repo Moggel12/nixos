@@ -3,15 +3,19 @@
 {
   programs.zsh = {
     enable = true;
-    autosuggestions.enable = true;
+    autocd = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
-    enableLsColors = true;
-    
-    shellInit = ''
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "gallifrey";
+    };
+     
+    initContent = ''
       bindkey -e
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
-
     '';
   };
 }

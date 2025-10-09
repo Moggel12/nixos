@@ -10,11 +10,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: rec {
-    homeModules = import ./home;
+  outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.linux-desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = (builtins.attrValues homeModules) ++ [
+      modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
