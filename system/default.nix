@@ -1,0 +1,3 @@
+{
+  systemModules = import ./modules;
+}
