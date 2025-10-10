@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/moggel";
 
   # Setup config links
-  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+  #home.file.".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland.conf;
   home.file.".gitconfig".source = ./gitconfig;
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/nvim";
 
