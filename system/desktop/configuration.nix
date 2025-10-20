@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./system/modules
+      ./../modules
     ];
 
   # Set up nix-commands and flakes
@@ -112,21 +112,8 @@
     enableSSHSupport = true;
   };
 
-  # Nvidia config 
-  #services.xserver.videoDrivers = ["nvidia"];
-
-  #hardware.graphics = {
-  #  enable = true;
-  #  enable32Bit = true;
-  #};
-
-  #hardware.nvidia = {
-  #  open = true;
-  #  modesetting.enable = true;
-  #  nvidiaSettings = true; 
-  #};
-
-  # List services that you want to enable:
+  # Nvidia config from module
+  system.nvidia.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

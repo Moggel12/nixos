@@ -23,6 +23,7 @@
     nmap
     zsh
     bitwarden-desktop
+    nerd-fonts.fira-code
   ];
 
 

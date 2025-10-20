@@ -1,17 +1,25 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
+let 
+  cfg = config.system.nvidia;
+in 
 {
-  # Nvidia config 
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  options.system.nvidia = {
+    enable = lib.mkEnableOption "Enable Nvidia drivers";
   };
 
-  hardware.nvidia = {
-    open = true;
-    modesetting.enable = true;
-    nvidiaSettings = true; 
+  config = lib.mkIf cfg.enable {
+    services.xserver.videoDrivers = ["nvidia"];
+
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    hardware.nvidia = {
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true; 
+    };
   };
 }

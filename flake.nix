@@ -11,10 +11,26 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
+
     nixosConfigurations.linux-desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./system/desktop/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.moggel = import ./home.nix;
+            backupFileExtension = "nxbackup";
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.linux-laptop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./system/laptop/configuration.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
